@@ -28,7 +28,7 @@ jobs:
     steps:
       - name: Set Path
         run: |
-          ls
+          ls -a
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install dependencies
