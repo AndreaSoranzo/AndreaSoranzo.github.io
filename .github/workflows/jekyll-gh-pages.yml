@@ -34,6 +34,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get install texlive-latex-base
+          tlmgr install pdftexcmds
           python -m pip install --upgrade pip
           pip install pdflatex
       - name: Compile
