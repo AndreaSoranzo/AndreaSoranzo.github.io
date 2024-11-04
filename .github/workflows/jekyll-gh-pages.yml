@@ -33,6 +33,7 @@ jobs:
           ls -a
       - name: Install dependencies
         run: |
+          sudo apt-get install texlive-latex-base
           python -m pip install --upgrade pip
           pip install pdflatex
       - name: Compile
