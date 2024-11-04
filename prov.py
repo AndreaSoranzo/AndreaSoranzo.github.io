@@ -8,7 +8,7 @@ def main() :
 
     html = l.Path('dist/index.html').read_text()
 
-    html = html.replace('{{HELLO}}',"AAAAAAAAAAAAAAAAAAAAAAAAAAAAA") 
+    html = html.replace('{{HERE}}',"AAAAAAAAAAAAAAAAAAAAAAAAAAAAA") 
 
     l.Path('dist/index.html').write_text(html)
 
