@@ -22,8 +22,8 @@ def main() :
         pdfl.set_output_directory("_site")
         logging.info(item)
         #pdf, _ , completed_process = pdfl.create_pdf(keep_pdf_file=True, keep_log_file=False)  
-        if completed_process.returncode == 0:
-            pdfs.append(item.replace(".tex",".pdf"))
+        #if completed_process.returncode == 0:
+            #pdfs.append(item.replace(".tex",".pdf"))
 
 
 
