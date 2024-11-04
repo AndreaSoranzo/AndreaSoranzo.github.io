@@ -10,6 +10,8 @@ def main() :
 
     html = html.replace('{{HELLO}}',"AAAAAAAAAAAAAAAAAAAAAAAAAAAAA") 
 
+    l.Path('dist/index.html').write_text(html)
+
 if __name__ == "__main__":
     main()
 
