@@ -17,13 +17,15 @@ def main() :
 
     html = l.Path('_site/index.html').read_text()
     pdfs = []
+    command =["pdflatex"]
     for item in os.listdir("letex"):
-        pdfl = PDFLaTeX.from_texfile(l.Path("letex/"+item))
-        pdfl.set_output_directory("_site")
-        logging.info("letex/"+item)
-        pdf, _ , completed_process = pdfl.create_pdf(keep_pdf_file=True, keep_log_file=False)  
-        if completed_process.returncode == 0:
-            pdfs.append(item.replace(".tex",".pdf"))
+        subprocess.call(command + ['letex/'+item])
+        for item in os.listdir("."):
+            if item.endswith(".log") or item.endswith(".aux") or item.endswith(".out"):
+                os.remove(os.path.join(".", item))
+            elif item.endswith(".pdf"):
+                cmd.move(item,"_site")
+                pdfs.append(item.replace(".tex",".pdf"))
 
 
 
