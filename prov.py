@@ -20,7 +20,7 @@ def main() :
     for item in os.listdir("letex"):
         pdfl = PDFLaTeX.from_texfile('letex/'+item)
         pdfl.set_output_directory("_site")
-        logging.info(+item)
+        logging.info(item)
         #pdf, _ , completed_process = pdfl.create_pdf(keep_pdf_file=True, keep_log_file=False)  
         if completed_process.returncode == 0:
             pdfs.append(item.replace(".tex",".pdf"))
