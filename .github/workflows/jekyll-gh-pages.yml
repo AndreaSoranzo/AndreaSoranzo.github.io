@@ -26,11 +26,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Set Path
         run: |
           ls -a
-      - name: Checkout
-        uses: actions/checkout@v4
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
