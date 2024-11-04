@@ -26,6 +26,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Set Path
+        run: |
+          ls
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install dependencies
