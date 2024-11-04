@@ -18,7 +18,7 @@ def main() :
     html = l.Path('_site/index.html').read_text()
     pdfs = []
     for item in os.listdir("letex"):
-        pdfl = PDFLaTeX.from_texfile("letex/"+item)
+        pdfl = PDFLaTeX.from_texfile(l.Path("letex/"+item))
         pdfl.set_output_directory("_site")
         logging.info("letex/"+item)
         pdf, _ , completed_process = pdfl.create_pdf(keep_pdf_file=True, keep_log_file=False)  
