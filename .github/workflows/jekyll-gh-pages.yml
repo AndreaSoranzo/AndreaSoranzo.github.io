@@ -41,6 +41,8 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: "./_site"
+      - name: s
+        run: ls -a
 
   # Deployment job
   deploy:
