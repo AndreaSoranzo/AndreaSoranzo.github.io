@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --background: #0d0c0c;
+    --background-alt: #1f1d1d;
+    --text: #fafafa;
+    --accent: rgb(160, 20, 17);
+    --link: rgb(157, 18, 15);
+    --link-v: rgb(128, 35, 30);
+}
+
+html {
+    background-color: var(--background);
+    color: var(--text);
+    font-family: monospace;
+    letter-spacing: 1px;
+}
+
+header,
+main {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+header div {
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: bold;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+nav {
+    text-align: center;
+    margin-bottom: 3%;
+    background-color: var(--background-alt);
+    padding: 2em;
+    font-size: 1.7em;
+    display: none;
+}
+
+nav li {
+    display: inline;
+}
+
+nav a {
+    font-weight: bold;
+    text-decoration: none;
+    width: 200px;
+}
+
+main {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4em;
+
+}
+
+
+main h2,
+main h1 {
+    color: var(--accent);
+}
+
+
+main h1::before {
+    margin-right: 0.5em;
+}
+
+main h2::before {
+    margin-right: 0.5em;
+}
+
+#candidatura h1::before {
+    content: "🎓";
+}
+
+#generali h1::before {
+    content: "🔧";
+}
+
+#verbali_ext h2::before,
+#verbali_int h2::before {
+    content: "📝";
+}
+
+main h1 {
+    font-size: 2.5em;
+}
+
+main h2 {
+    font-size: 2em;
+}
+
+main ul {
+    font-size: 1.2em;
+    list-style-type: none;
+    padding-left: 4em;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+li {
+    margin-bottom: .2em;
+    margin-top: .2em;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+li span {
+    font-weight: bold;
+    color: white;
+}
+
+a {
+    color: var(--link);
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 5px;
+    transition-duration: .5s;
+}
+
+li::marker {
+    content: "» ";
+
+}
+
+
+a:visited {
+    color: var(--link-v);
+    background-color: var(--link-v);
+}
+
+a:hover {
+    color: var(--text);
+    background-color: var(--link);
+}
+
+footer {
+    margin-top: 3%;
+    text-align: center;
+    background-color: var(--background-alt);
+}
+
+footer p {
+    padding: 2em;
+    font-style: italic;
+}

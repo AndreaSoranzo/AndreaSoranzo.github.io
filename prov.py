@@ -6,7 +6,7 @@ import os
 import logging
 
 
-TEMPLATE = '<li><a href="{{link}}" target="_blank">{{name}}</a></li>'
+TEMPLATE = '<li><a href="{{link}}" target="_blank">{{name}}</a> <span class="tag-versione">{{versione}}</span> </li>'
 
 def main() :
     logging.basicConfig(level=os.getenv('LOGLEVEL', 'INFO'))
