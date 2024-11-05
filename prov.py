@@ -16,7 +16,7 @@ def main() :
 
     html = l.Path('_site/index.html').read_text()
     pdfs = []
-    command =["pdflatex"]
+    command =["./latexdockercmd.sh", "latexmk", "-cd", "-f", "-interaction=batchmode", "-pdf"]
     for item in os.listdir("letex"):
         subprocess.call(command + ['letex/'+item])
         for item in os.listdir("."):
