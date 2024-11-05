@@ -5,7 +5,6 @@ import subprocess
 import os
 import logging
 
-from pdflatex import PDFLaTeX
 
 TEMPLATE = '<li><a href="{{link}}" target="_blank">{{name}}</a></li>'
 
