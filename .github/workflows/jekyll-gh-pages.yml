@@ -31,8 +31,9 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt install -y \
+          perl \
           texlive \
-          pdflatex \
+          latexmk \
       - name: Compile
         run: |
           pip install pdflatex
