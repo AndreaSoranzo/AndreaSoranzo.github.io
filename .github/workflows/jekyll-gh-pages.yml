@@ -31,7 +31,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt install -y \
-          texlive \
+          texlive-plain-generic \
       - name: Compile
         run: |
           python3 prov.py
