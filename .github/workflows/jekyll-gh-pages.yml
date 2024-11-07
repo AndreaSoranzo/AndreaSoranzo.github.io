@@ -31,12 +31,9 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt install -y \
-          perl \
           texlive \
-          latexmk \
       - name: Compile
         run: |
-          pip install pdflatex
           python3 prov.py
       - name: Setup Pages
         uses: actions/configure-pages@v5
