@@ -71,7 +71,7 @@ def BuildTypePDF(init_path:str, pdfs:dict[str, list], command:list[str], type:st
         try:
             result.check_returncode()
         except Exception as e:
-            logging.error(f"Compiling {path.Path("main.tex")} failed with stderr: \n{result.stderr}")
+            logging.error(f"Compiling {doc} failed with stderr: \n{result.stderr}")
         cmd.move(doc+".pdf",path.Path("../../../_site/"+doc+".pdf"))
         pdfs[type].append(PDF(doc+'.pdf',ver))
         os.chdir(init_path)
