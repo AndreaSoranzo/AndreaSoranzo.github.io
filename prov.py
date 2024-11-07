@@ -74,6 +74,7 @@ def BuildTypePDF(init_path:str, pdfs:dict[str, list], command:list[str], type:st
             result.check_returncode()
         except Exception as e:
             logging.error(f"Compiling {doc} failed with stderr: \n{result.stderr}")
+            return
         cmd.move(doc+".pdf",path.Path("../../../_site/"+doc+".pdf"))
         pdfs[type].append(PDF(doc+'.pdf',ver))
         logging.debug(f"Current dir to {os.getcwd()}")
