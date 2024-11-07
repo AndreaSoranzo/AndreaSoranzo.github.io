@@ -66,6 +66,7 @@ def BuildAllPDF(init_path:str, pdfs:dict[str, list], command:list[str]):
 def BuildTypePDF(init_path:str, pdfs:dict[str, list], command:list[str], type:str):
     for doc in os.listdir(path.Path("tex/"+type)):
         ver = GetDocVersion(path.Path('tex/'+type+"/"+doc+"/titlepage.tex"))
+        logging.debug(f"Current dir {os.getcwd()}")
         logging.debug(f"Changing dir to {path.Path('tex/'+type+'/'+doc)}")
         os.chdir(path.Path("tex/"+type+"/"+doc))
         result = subprocess.run(command + ["-jobname="+doc] + [path.Path("main.tex")],stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
@@ -75,6 +76,7 @@ def BuildTypePDF(init_path:str, pdfs:dict[str, list], command:list[str], type:st
             logging.error(f"Compiling {doc} failed with stderr: \n{result.stderr}")
         cmd.move(doc+".pdf",path.Path("../../../_site/"+doc+".pdf"))
         pdfs[type].append(PDF(doc+'.pdf',ver))
+        logging.debug(f"Current dir to {os.getcwd()}")
         logging.debug(f"Changing dir to {path.Path(init_path)}")
         os.chdir(init_path)
 
