@@ -33,9 +33,8 @@ jobs:
           sudo apt install -y \
           texlive \
           texinfo \
-          texlive-fonts-recommended \
-          texlive-fonts-extra \
-          texlive-latex-extra
+          texlive-latex-extra \
+          texlive-lang-italian
       - name: Compile
         run: |
           python3 prov.py
