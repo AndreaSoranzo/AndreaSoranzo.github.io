@@ -134,14 +134,15 @@ main div {
 main ul {
     font-size: 1.15em;
     padding-left: 4em;
+    padding-right: 4em;
     margin-top: 2%;
     margin-bottom: 2%;
 }
 
 
 li {
-    margin-bottom: .5em;
-    margin-top: .4em;
+    margin-bottom: .6em;
+    margin-top: .5em;
     margin-left: 2em;
     margin-right: 2em;
 }
@@ -151,6 +152,7 @@ li span {
     color: white;
     letter-spacing: 2px;
     padding-left: 3%;
+    float: inline-end;
 }
 
 li span::before {

@@ -1,0 +1,32 @@
+\documentclass[a4paper]{article}
+\usepackage[normalem]{ulem}
+\usepackage{graphicx}
+\usepackage{eurosym}
+\usepackage[font=small,labelfont=bf]{caption}
+
+% impostazioni generali
+\input{template/package.tex}
+
+% dati relativi alla prima pagina
+\makeindex
+\begin{document}
+\counterwithin{table}{section}
+
+% Prima pagina
+\input{titlepage.tex}
+
+% Diario delle modifiche
+\input{template/changelog.tex}
+\input{config/changelog_input.tex}
+\pagebreak
+
+% Contenuto
+\include{content_01.tex}
+
+
+% inserisco solo per comodità la richiesta di aggiudicazione
+%\include{02_capitolato}
+
+\end{document}
+
+
