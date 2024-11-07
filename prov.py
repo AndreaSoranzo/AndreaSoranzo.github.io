@@ -71,7 +71,7 @@ def BuildTypePDF(init_path:str, pdfs:dict[str, list], command:list[str], type:st
         os.chdir(path.Path("tex/"+type+"/"+doc))
         result = subprocess.run(command + ["-jobname="+doc] + [path.Path("main.tex")],stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
         try:
-            logging.info(command + ["-jobname="+doc] + [path.Path("main.tex")])
+            logging.info(path.Path("tex/"+type))
             result.check_returncode()
         except Exception as e:
             logging.error(f"Compiling {doc} failed with stderr: \n{result.stderr}")
