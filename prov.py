@@ -83,6 +83,9 @@ def UpdateHtml(html:str,pdfs:dict[str, list]):
         html = html.replace("{{"+ type +"}}","\n".join(MakeLink(pdf) for pdf in pdfs[type]))
     path.Path('_site/index.html').write_text(html)
 
+def sahjudsajh():
+    pass
+
 def Random():
     pass
 
