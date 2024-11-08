@@ -65,7 +65,7 @@ def BuildAllPDF(pdfs:dict[str, list], command:list[str]):
 def BuildTypePDF(pdfs:dict[str, list], command:list[str], type:str):
     for doc in os.listdir(path.Path("tex/"+type)):
         ver = GetDocVersion(path.Path('tex/'+type+"/"+doc+"/titlepage.tex"))
-        result = subprocess.run(command + ["-jobname="+doc] + [path.Path("tex/"+type+"/"+doc+"/"+"main.tex")],stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
+        result = subprocess.run(command + ["-jobname="+doc] + [path.Path("tex/"+type+"/"+doc+"/"+"main.tex")])
         try:
             result.check_returncode()
         except Exception as e:
