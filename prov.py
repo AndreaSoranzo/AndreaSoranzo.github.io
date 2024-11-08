@@ -29,7 +29,6 @@ class PDF:
 
 
 def main(UseThread:bool=False):
-    start_time = time.time()
     logging.basicConfig(level=os.getenv('LOGLEVEL', 'INFO'))
     init_path = os.getcwd()
 
@@ -50,7 +49,6 @@ def main(UseThread:bool=False):
         BuildAllPDF(init_path, pdfs, command) 
     
     UpdateHtml(html,pdfs)
-    print("--- %s seconds ---" % (time.time() - start_time))
 
 
 def BuildAllPDF(init_path:str, pdfs:dict[str, list], command:list[str]):
@@ -84,6 +82,9 @@ def UpdateHtml(html:str,pdfs:dict[str, list]):
         pdfs[type].sort(reverse=True)
         html = html.replace("{{"+ type +"}}","\n".join(MakeLink(pdf) for pdf in pdfs[type]))
     path.Path('_site/index.html').write_text(html)
+
+def Random():
+    pass
 
 def GetDocVersion(path:str):
     ver = ""
