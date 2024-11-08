@@ -71,8 +71,6 @@ def BuildTypePDF(init_path:str, pdfs:dict[str, list], command:list[str], type:st
         os.chdir(path.Path("tex/"+type+"/"+doc))
         result = subprocess.run(command + ["-jobname="+doc] + [path.Path("main.tex")])
         try:
-            logging.info(path.Path("tex/"+type))
-            logging.info(os.getcwd())
             result.check_returncode()
         except Exception as e:
             logging.error(f"Compiling {doc} failed with stderr: \n{result.stderr}")
@@ -86,7 +84,7 @@ def BuildTypePDF(init_path:str, pdfs:dict[str, list], command:list[str], type:st
 def UpdateHtml(html:str,pdfs:dict[str, list]):
     logging.info(f'Updating the HTML')
     for type in pdfs:
-        pdfs[type].sort()
+        pdfs[type].sort(reverse=True)
         html = html.replace("{{"+ type +"}}","\n".join(MakeLink(pdf) for pdf in pdfs[type]))
     path.Path('_site/index.html').write_text(html)
 
