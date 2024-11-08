@@ -30,7 +30,6 @@ class PDF:
 def main(UseThread:bool=False):
     start_time = time.time()
     logging.basicConfig(level=os.getenv('LOGLEVEL', 'INFO'))
-    init_path = os.getcwd()
 
     logging.info(f'Creating the workspace')
     cmd.rmtree('_site', ignore_errors=True)
@@ -50,20 +49,20 @@ def main(UseThread:bool=False):
 
         with concurrent.futures.ThreadPoolExecutor(60) as pool:
             for type in os.listdir(path.Path("tex")):
-                pool.submit(BuildTypePDF,init_path,pdfs,command,type)
+                pool.submit(BuildTypePDF,pdfs,command,type)
     else:
-        BuildAllPDF(init_path, pdfs, command) 
+        BuildAllPDF(pdfs, command) 
     
     UpdateHtml(html,pdfs)
     print("--- %s seconds ---" % (time.time() - start_time))
 
 
-def BuildAllPDF(init_path:str, pdfs:dict[str, list], command:list[str]):
+def BuildAllPDF(pdfs:dict[str, list], command:list[str]):
     logging.info(f'Building tex files')
     for type in os.listdir(path.Path("tex")):
-        BuildTypePDF(init_path, pdfs, command, type)
+        BuildTypePDF(pdfs, command, type)
 
-def BuildTypePDF(init_path:str, pdfs:dict[str, list], command:list[str], type:str):
+def BuildTypePDF(pdfs:dict[str, list], command:list[str], type:str):
     for doc in os.listdir(path.Path("tex/"+type)):
         ver = GetDocVersion(path.Path('tex/'+type+"/"+doc+"/titlepage.tex"))
         result = subprocess.run(command + ["-jobname="+doc] + [path.Path("tex/"+type+"/"+doc+"/"+"main.tex")],stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
@@ -74,9 +73,6 @@ def BuildTypePDF(init_path:str, pdfs:dict[str, list], command:list[str], type:st
             exit(1)
         cmd.move(doc+".pdf",path.Path("../../../_site/"+doc+".pdf"))
         pdfs[type].append(PDF(doc+'.pdf',ver))
-        logging.debug(f"Current dir to {os.getcwd()}")
-        logging.debug(f"Changing dir to {path.Path(init_path)}")
-        os.chdir(init_path)
 
 def UpdateHtml(html:str,pdfs:dict[str, list]):
     logging.info(f'Updating the HTML')
