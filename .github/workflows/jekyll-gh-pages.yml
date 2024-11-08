@@ -32,7 +32,7 @@ jobs:
         run: |
           sudo apt install -y \
           texlive \
-          texinfo \
+          texlive-latex-extra \
           texlive-lang-italian
       - name: Compile
         run: |
