@@ -71,11 +71,11 @@ def BuildTypePDF(init_path:str, pdfs:dict[str, list], command:list[str], type:st
         except Exception as e:
             logging.error(f"Compiling {doc} failed with stderr: \n{result.stderr}")
             exit(1)
-        os.chdir(init_path)
-        cmd.move(doc+".pdf",path.Path("_site/"+doc+".pdf"))
+        cmd.move(doc+".pdf",path.Path("../../../_site/"+doc+".pdf"))
         pdfs[type].append(PDF(doc+'.pdf',ver))
         logging.debug(f"Current dir to {os.getcwd()}")
         logging.debug(f"Changing dir to {path.Path(init_path)}")
+        os.chdir(init_path)
 
 def UpdateHtml(html:str,pdfs:dict[str, list]):
     logging.info(f'Updating the HTML')
