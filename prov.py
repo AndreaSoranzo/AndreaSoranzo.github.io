@@ -10,6 +10,7 @@ import time
 
 
 TEMPLATE = '<li><a href="{{link}}" target="_blank">{{name}}</a> <span class="tag-versione">{{ver}}</span> </li>'
+DOCS_PATH = "tex"
 
 class PDF:
     def __init__(self,name,ver):
@@ -28,7 +29,6 @@ class PDF:
 
 
 def main(UseThread:bool=False):
-    start_time = time.time()
     logging.basicConfig(level=os.getenv('LOGLEVEL', 'INFO'))
 
     logging.info(f'Creating the workspace')
@@ -37,30 +37,24 @@ def main(UseThread:bool=False):
 
     html = path.Path('_site/index.html').read_text()
 
-    pdfs = {
-        "candidatura" : [],
-        "generali" : [],
-        "VI" : [],
-        "VE" : []
-    }
+    pdfs = {}
     command = ["pdflatex"]
 
     if UseThread:
-
         with concurrent.futures.ThreadPoolExecutor(60) as pool:
-            for type in os.listdir(path.Path("tex")):
-                pool.submit(BuildTypePDF,pdfs,command,type)
+            for type in os.listdir(path.Path(DOCS_PATH)):
+                pool.submit(BuildTypePDF,init_path,pdfs,command,type)
     else:
         BuildAllPDF(pdfs, command) 
     
     UpdateHtml(html,pdfs)
-    print("--- %s seconds ---" % (time.time() - start_time))
 
 
 def BuildAllPDF(pdfs:dict[str, list], command:list[str]):
     logging.info(f'Building tex files')
-    for type in os.listdir(path.Path("tex")):
-        BuildTypePDF(pdfs, command, type)
+    for type in os.listdir(path.Path(DOCS_PATH)):
+        pdfs[type] = []
+        BuildTypePDF(init_path, pdfs, command, type)
 
 def BuildTypePDF(pdfs:dict[str, list], command:list[str], type:str):
     for doc in os.listdir(path.Path("tex/"+type)):
@@ -77,9 +71,16 @@ def BuildTypePDF(pdfs:dict[str, list], command:list[str], type:str):
 def UpdateHtml(html:str,pdfs:dict[str, list]):
     logging.info(f'Updating the HTML')
     for type in pdfs:
+        print(type)
         pdfs[type].sort(reverse=True)
         html = html.replace("{{"+ type +"}}","\n".join(MakeLink(pdf) for pdf in pdfs[type]))
     path.Path('_site/index.html').write_text(html)
+
+def sahjudsajh():
+    pass
+
+def Random():
+    pass
 
 def GetDocVersion(path:str):
     ver = ""
@@ -94,4 +95,3 @@ def MakeLink(pdf:PDF):
 
 if __name__ == "__main__":
     main()
-
