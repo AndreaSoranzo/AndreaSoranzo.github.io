@@ -30,8 +30,10 @@ jobs:
         uses: actions/checkout@v4
       - name: Install dependencies
         run: |
-          wget https://raw.githubusercontent.com/blang/latex-docker/master/latexdockercmd.sh
-          chmod +x latexdockercmd.sh
+          sudo apt install -y \
+          texlive \
+          texlive-latex-extra \
+          texlive-lang-italian
       - name: Compile
         run: |
           python3 prov.py

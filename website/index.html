@@ -1,81 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MERL</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SixBitBusters</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" href="images/logo.ico" type="image/x-icon">
+        <meta name="author" content="SixBitBusters">
+        <meta name="description" content="Sito ufficiale del gruppo 1 di Ingegneria del Software: SixBitBusters">
+        <meta name="keywords" content="swe,ingegneria del software,SixBitBusters,unipd">
 
-  <link rel="stylesheet" href="./website/style.css">
-</head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    </head>
 
-<body>
-  <nav>
-    <img id="header-logo" src="./website/img/logo_grosso.png"
-      alt="logo del gruppo raffigurante la scritta MERL con un merlo sopra">
-    <div id="nav-navigation">
-      <p><a href="#login-warrior">Login Warrior</a></p>
-      <p><a href="#documenti">Documenti</a></p>
-      <p><a href="#contatti">Contatti</a></p>
-      <p><a href="#about">About</a></p>
-    </div>
-  </nav>
+    <body>
+        <header>
 
-  <section id="login-warrior">
-    <h1>LOGIN WARRIOR</h1>
-    <p><a href="https://merlunipd.github.io/login-warrior/src/login_warrior/">Link al Prodotto</a></p>
-  </section>
+            <h1>SIX BIT BUSTERS</h1>
+            <div id="desc">
+                <p>
+                    <span>Ingegneria del Software 2024/2025</span>
+                    <span>Università degli Studi di Padova</span>
+                </p>
+            </div>
+        </header>
 
-  <section id="documenti">
-    <h1>DOCUMENTI</h1>
-    <h3>CANDIDATURA</h3>
-    <div class="indented">
+        <nav>
+            <ul>
+                <li><a href="#candidatura">Candidatura</a></li>
+                <li><a href="#generali">Generali</a></li>
+                <li><a href="#verbali_int">Verbali Interni</a></li>
+                <li><a href="#verbali_ext">Verbali Esterni</a></li>
+            </ul>
+        </nav>
 
-    </div>
-    
-    <h3>ESTERNI</h3>
-    
-      </div>
-    </div>
-    
-    <h3>INTERNI</h3>
-    <div class="indented">
-      <p><a href="output_documenti/interni/NdP_V3.pdf">Norme di Progetto</a> <span class="tag-versione">V3.0.0</span></p>
-      <p>Verbali</p>
-      <div class="indented">
+        <main>
+            <div id="candidatura">
+                <h1>CANDIDATURA</h1>
+                <ul>
+                    {{Candidatura}}
+                </ul>
+            </div>
+            <div id="generali">
+                <h1>GENERALI</h1>
+                <ul>
+                    {{Generali}}
+                </ul>
+            </div>
 
+            <div id="verbali_int">
+                <h2>VERBALI INTERNI</h2>
+                <ul>
+                    {{VErbali Interni}}
+                </ul>
+            </div>
 
-      </div>
-    </div>
-  </section>
+            <div id="verbali_ext">
+                <h2>VERBALI ESTERNI</h2>
+                <ul>
+                    {{Verbali esterni}}ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+                </ul>
+            </div>
+        </main>
 
-  <section id="contatti">
-    <h1>CONTATTI</h1>
-   
-  </section>
+        <footer>
+            <p>Copyright&copy; 2024 by SixBitBusters all right reserved</p>
+        </footer>
 
-  <section id="about">
-    <h1>ABOUT</h1>
-    <p>Il gruppo MERL nasce per affrontare il progetto didattico del corso di <a href="https://www.math.unipd.it/~tullio/IS-1/2021/">Ingegneria del Software</a> dell'<a class="red_unipd" href="https://www.unipd.it/">Università di Padova</a>.</p>
-    <p>I membri del gruppo sono:
-      <ul>
-        <li>Contin Riccardo</li>
-        <li>Mamprin Marco</li>
-        <li>Mazzucato Marco</li>
-        <li>Onelia Lorenzo</li>
-        <li>Pase Emanuele</li>
-        <li>Vukovic Marko</li>
-        <li>Zanellato Mattia</li>
-      </ul>
-    </p>
-    <p>Il progetto Login Warrior viene proposto al gruppo di progetto didattico da <a href="https://www.zucchetti.it/website/cms/home.html">Zucchetti S.p.A.</a>.</p>
-  </section>
-
-  <p id="last-update">Last update: 2022/06/10 17:29</p>
-
-  {{HERE}}
-  
-</body>
+    </body>
 
 </html>
